@@ -1,4 +1,9 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using SalesHubMVC.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<SalesHubMVCContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("SalesHubMVCContext") ?? throw new InvalidOperationException("Connection string 'SalesHubMVCContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
