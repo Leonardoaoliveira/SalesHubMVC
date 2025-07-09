@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using SalesHubMVC.Models;
+using SalesHubMVC.Models.ViewModels;
 
 namespace SalesHubMVC.Controllers
 {
@@ -20,6 +21,9 @@ namespace SalesHubMVC.Controllers
 
         public IActionResult Privacy()
         {
+            ViewData["Message"] = "Salles Hub MVC App From C#";
+            ViewData["Name"] = "Leonardo Araújo";
+
             return View();
         }
 
