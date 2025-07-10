@@ -1,9 +1,16 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using SalesHubMVC.Data;
+using System.Configuration;
+
 var builder = WebApplication.CreateBuilder(args);
+
 builder.Services.AddDbContext<SalesHubMVCContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("SalesHubMVCContext") ?? throw new InvalidOperationException("Connection string 'SalesHubMVCContext' not found.")));
+    options.UseMySql(builder.Configuration.GetConnectionString("SalesHubMVCContext"),
+        ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("SalesHubMVCContext")),
+                                    mySqlOptions => mySqlOptions.MigrationsAssembly("SalesHubMVC")
+    )
+);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
