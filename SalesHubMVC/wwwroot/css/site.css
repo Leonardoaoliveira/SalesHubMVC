@@ -1,22 +1,63 @@
+/* Define o tamanho base da fonte */
 html {
-  font-size: 14px;
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
+/* Espaço no final do body para evitar sobreposição com o footer */
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
 }
+
+/* Efeito de foco em botões e inputs */
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+/* NAVBAR -------------------------------------------------- */
+
+/* Navbar com padding vertical maior */
+.navbar {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+    /* Estilo dos links da navbar */
+    .navbar .nav-link {
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: var(--bs-nav-link-color) !important;
+        transition: color 0.7s, text-shadow 0.3s;
+    }
+
+        /* Hover nos links da navbar */
+        .navbar .nav-link:hover,
+        .navbar .nav-link:focus,
+        .navbar .nav-link.active {
+            color: var(--bs-nav-link-hover-color) !important;
+            text-decoration: underline;
+            text-shadow: none;
+        }
+
+    /* Estilo do título da navbar (marca) */
+    .navbar .navbar-brand {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--bs-navbar-brand-color, white) !important;
+        transition: color 0.3s;
+    }
+
+        .navbar .navbar-brand:hover {
+            color: var(--bs-nav-link-hover-color, #f8f9fa) !important;
+        }
